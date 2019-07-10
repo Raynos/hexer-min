@@ -1,9 +1,10 @@
 "use strict";
 
-var extend = require('xtend');
 var util = require('util');
 var Transform = require('stream').Transform;
 var render = require('./render');
+
+var hasOwnProperty = Object.prototype.hasOwnProperty;
 
 function HexTransform(options) {
     if (!(this instanceof HexTransform)) {
@@ -133,3 +134,20 @@ function noopDecorate(offset, screenOffset, s) {
 }
 
 module.exports = HexTransform;
+
+function extend() {
+    var target = {};
+
+    for (var i = 0; i < arguments.length; i++) {
+        var source = arguments[i];
+
+        for (var key in source) {
+            // istanbul ignore else
+            if (hasOwnProperty.call(source, key)) {
+                target[key] = source[key];
+            }
+        }
+    }
+
+    return target;
+}

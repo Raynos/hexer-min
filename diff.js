@@ -1,11 +1,11 @@
 'use strict';
 
 var color = require('ansi-color').set;
-var extend = require('xtend');
-var extendInto = require('xtend/mutable');
 
 var render = require('./render');
 var hex = require('./index');
+
+var hasOwnProperty = Object.prototype.hasOwnProperty;
 
 module.exports = diff;
 
@@ -77,4 +77,34 @@ function coloredDiffA(str) {
 
 function coloredDiffB(str) {
     return color(str, 'green+bold');
+}
+
+function extendInto(target) {
+    for (var i = 1; i < arguments.length; i++) {
+        var source = arguments[i];
+
+        for (var key in source) {
+            if (hasOwnProperty.call(source, key)) {
+                target[key] = source[key];
+            }
+        }
+    }
+
+    return target;
+}
+
+function extend() {
+    var target = {};
+
+    for (var i = 0; i < arguments.length; i++) {
+        var source = arguments[i];
+
+        for (var key in source) {
+            if (hasOwnProperty.call(source, key)) {
+                target[key] = source[key];
+            }
+        }
+    }
+
+    return target;
 }

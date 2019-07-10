@@ -1,7 +1,7 @@
 {
-  "name": "hexer",
+  "name": "hexer-min",
   "version": "1.5.0",
-  "description": "Hex Dumper (streaming, sync, and cli)",
+  "description": "Hex Dumper (streaming, sync)",
   "keywords": [
     "hex",
     "dump",
@@ -20,14 +20,8 @@
       "name": "Joshua T Corbin"
     }
   ],
-  "bin": {
-    "hexer": "./cli.js"
-  },
   "dependencies": {
-    "ansi-color": "^0.2.1",
-    "minimist": "^1.1.0",
-    "process": "^0.10.0",
-    "xtend": "^4.0.0"
+    "ansi-color": "^0.2.1"
   },
   "devDependencies": {
     "coveralls": "^2.10.0",
@@ -37,7 +31,8 @@
     "jshint": "^2.6.0",
     "opn": "^1.0.1",
     "pre-commit": "0.0.9",
-    "tape": "^3.4.0"
+    "tape": "^3.4.0",
+    "xtend": "4.0.2"
   },
   "licenses": [
     {
